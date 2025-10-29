@@ -7,30 +7,33 @@ import type Votes from '../../types/votes';
 import type { VoteType } from '../../types/votes';
 
 
-
-
-function App()
-{
+function App() {
   const [votes, setVotes] = useState<Votes>({
-	good: 0,
-	neutral: 0,
-	bad: 0
-  })
-  
-  const handleVote = (type: VoteType) => {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
+
+const handleVote = (type: VoteType) => {
     setVotes(prev => ({
       ...prev,
       [type]: prev[type] + 1
     }));
 
-    console.log(`Clicked: ${type}`, votes);
+    console.log("Clicked:", type, "New State:", votes);
   };
-
+  
+  const resetVotes= () => setVotes({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions />
-      <button onClick={handleVote}>Click me!</button>
+      <VoteOptions onClick={handleVote} onReset={resetVotes}/>
+
     </div>
   )
 }
