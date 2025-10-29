@@ -11,14 +11,19 @@ import type { VoteType } from '../../types/votes';
 
 function App()
 {
-  const votes: Votes = {
+  const [votes, setVotes] = useState<Votes>({
 	good: 0,
 	neutral: 0,
 	bad: 0
-  }
+  })
   
-  const handleVote = () => {
-    console.log("I'm a button!");
+  const handleVote = (type: VoteType) => {
+    setVotes(prev => ({
+      ...prev,
+      [type]: prev[type] + 1
+    }));
+
+    console.log(`Clicked: ${type}`, votes);
   };
 
   return (
