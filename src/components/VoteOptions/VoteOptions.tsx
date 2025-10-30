@@ -4,11 +4,12 @@ import css from './VoteOptions.module.css'
 interface VoteOptionsProps {
     onClick: (type: VoteType) => void;
     onReset: () => void;
+    canReset: boolean
    
 }
 
 
-function VoteOptions({ onClick, onReset }: VoteOptionsProps) {
+function VoteOptions({ onClick, onReset, canReset }: VoteOptionsProps) {
     return(
     <div className={css.container}>
         <button className={css.button} onClick={() => onClick("good")}>Good</button>

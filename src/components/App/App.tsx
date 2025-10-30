@@ -33,7 +33,7 @@ const handleVote = (type: VoteType) => {
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions onClick={handleVote} onReset={resetVotes}/>
+      <VoteOptions onClick={handleVote} onReset={resetVotes} canReset={true} />
       <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />
     </div>
   )
