@@ -4,6 +4,7 @@ import css from './VoteOptions.module.css'
 interface VoteOptionsProps {
     onClick: (type: VoteType) => void;
     onReset: () => void;
+   
 }
 
 
